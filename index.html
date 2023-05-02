@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>The zEGG Protocol | The Decentralized Reserve Currency</title>
+    <meta
+        content="zEGG is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world."
+        name="description">
+    <meta content="The zEGG Protocol | The Decentralized Reserve Currency" property="og:title">
+    <meta
+        content="zEGG is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world."
+        property="og:description">
+    <meta content="./assets/CARROT.png" property="og:image">
+    <meta content="The zEGG Protocol | The Decentralized Reserve Currency" property="twitter:title">
+    <meta
+        content="zEGG is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world."
+        property="twitter:description">
+    <meta content="./assets/CARROT.png" property="twitter:image">
+    <meta property="og:type" content="website">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link href="./assets/CARROT.png" rel="shortcut icon" type="image/x-icon">
+    <link href="./assets/CARROT.png" rel="apple-touch-icon">
+
+    <meta name="twitter:image" content="./assets/CARROT.png">
+    <meta name="twitter:description"
+        content="zEGG is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The zEGG Protocol | The Decentralized Reserve Currency">
+
+    <meta property="og:image" content="./assets/CARROT.png">
+</head>
+
+<body id="carrto-finance">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="sidebarContainer" class="col-auto" style="z-index: 1000002;">
+                <div id="sidebar" class="d-flex flex-column align-items-center pe-2 py-4">
+                    <a id="logo" href=""
+                        class="text-decoration-none mb-2 w-100 d-flex align-items-center ps-3 pe-2">
+                        <img src="./assets/CARROT.png" alt="logo-icon" class="col-2">
+                    </a>
+                    
+                    <ul id="sidebar-nav" class="list-unstyled p-0 py-5">
+                        <li class="mb-4 py-2 px-5 rounded-pill">
+                            <a href="index.html" class="text-decoration-none text-reset d-flex align-items-center">
+                                <span class="ms-3">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="mb-4 py-2 px-5 rounded-pill">
+                            <a href="#divstake" class="text-decoration-none text-reset d-flex align-items-center">
+                                <span class="ms-3">Stake CARROT</span>
+                            </a>
+                        </li>
+                        <li class="mb-4 py-2 px-5 rounded-pill">
+                            <a href="#divstakelp" class="text-decoration-none text-reset d-flex align-items-center">
+                                <span class="ms-3">Stake LP</span>
+                            </a>
+                        </li>
+                        <li class="mb-4 py-2 px-5 rounded-pill">
+                            <a href="https://app.zyberswap.io/exchange/swap?outputCurrency=0x8418B8BFF5a9979e26091922bF8614b78e93c44B"
+                                class="text-decoration-none text-reset d-flex align-items-center">
+                                <span class="ms-3">Swap</span>
+                            </a>
+                        </li>
+                        <li class="mb-4 py-2 px-5 rounded-pill">
+                            <a href="https://www.defined.fi/arb/0x5bcb14eeb3739a2140ea23535c96394597c85e82"
+                                class="text-decoration-none text-reset d-flex align-items-center">
+                                <span class="ms-3">Chart</span>
+                            </a>
+                        </li>
+                        <li class="mb-4 py-2 px-5 rounded-pill">
+                            <a href=""
+                                class="text-decoration-none text-reset d-flex align-items-center">
+                                <span class="ms-3">Docs</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="d-flex justify-content-around w-100 px-4">
+                        <a href=""
+                            class="text-decoration-none text-reset fs-5 social-icon-hover">
+                            <i class="bi bi-send-fill"></i>
+                        </a>
+                        <a href="https://twitter.com/RabbitHoleARB"
+                            class="text-decoration-none text-reset fs-5 social-icon-hover">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href=""
+                            class="text-decoration-none text-reset fs-5 social-icon-hover">
+                            <i id = "discord" class="bi bi-discord"></i>
+                        </a>
+                        <span class="text-decoration-none text-reset fs-5 social-icon-hover">
+                            <i id = "rebase" class="bi bi-capslock-fill"></i>
+                        </span>
+                        <span class="text-decoration-none text-reset fs-5 social-icon-hover">
+                            <i id = "correct" class="bi bi-check-circle-fill"></i>
+                        </span>
+                    </div>
+                    </div>
+                </div>
+
+            <div id="overlay" style="z-index: 1000001;"></div>
+
+            <main class="col pt-4">
+                <div class="w-100 position-fixed end-0 top-0" style="height: 68px; z-index: 100001;">
+                    <div class="d-flex pt-3 px-sm-3">
+                        <button type="button" id="showSidebar" class="d-lg-none btn fs-5"><i
+                                class="bi bi-list"></i></button>
+                        <div class="dropdown ms-auto"></div>
+                        <button id="connect" type="button" class="btn rounded-1 ms-3">
+                            Connect Wallet
+                        </button>
+                    </div>
+                </div>
+                <h1  class="col-xl-8 text-center text-secondary">ZksEGG Stats</h1>
+                <div id = "divindex" class="container py-3">                    
+                    <div class="col-xl-8 mx-auto">
+                        <div class="card border border-primary text-center p-4">
+                            <div class="row row-cols-1 row-cols-sm-3">
+                                <div class="col">
+                                    <div class="text-secondary mb-1">
+                                        Market Cap <i class="bi bi-patch-question-fill" data-bs-toggle="tooltip"
+                                            data-bs-html="true" data-bs-placement="bottom"
+                                            title="Based on our actual circulating supply. Other chart may display differently."></i>
+                                    </div>
+                                    <h5 id="mcap" class="fw-bold">Loading</h5>
+                                </div>
+
+                                <div class="col">
+                                    <div class="text-secondary mb-1">$zEGG Price</div>
+                                    <h5 id="price" class="fw-bold">Loading</h5>
+                                </div>
+
+                                <div class="col">
+                                    <div class="text-secondary mb-1">
+                                        Next Rebase <i class="bi bi-patch-question-fill" data-bs-toggle="tooltip"
+                                            data-bs-html="true" data-bs-placement="bottom"
+                                            title="Rebase may get delayed due to blockchain traffic"></i>
+                                    </div>
+                                    <h5 id="nextRebase" class="fw-bold">Every Block</h5>
+                                </div>
+
+                                <div class="col">
+                                    <div class="text-secondary mb-1">
+                                        Circulating Supply <i class="bi bi-patch-question-fill" data-bs-toggle="tooltip"
+                                            data-bs-html="true" title="Excludes burned / locked tokens"></i>
+                                    </div>
+                                    <h5 id="cirSupply" class="fw-bold">Loading</h5>
+                                </div>
+
+                                <div class="col">
+                                    <div class="text-secondary mb-1">
+                                        Staked Rate
+                                    </div>
+                                    <h5 id="stakedRate" class="fw-bold">~%</h5>
+                                </div>
+
+                                <div class="col">
+                                    <div class="text-secondary mb-1">ZIF <i class="bi bi-patch-question-fill" data-bs-toggle="tooltip"
+                                        data-bs-html="true" title="ZksEggs Insurance Fund"></i></div>
+                                    <h5 id="zif" class="fw-bold">Loading</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1  class="col-xl-8 text-center text-secondary">ZksEGG Staked</h1>
+                <div id = "divstake" class="container py-3">
+                    <div class="col-xl-8 mx-auto">
+                        <div class="card border border-primary">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="p-3">
+                                        <span class="text-secondary">
+                                            APR
+                                        </span>
+                                        <h4 id="apy" class="fw-bold my-2">Loading...</h4>
+                                        <span id="dailyroi" class="text-secondary">Daily ROI ~%</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="card border border-primary p-3">
+                                        <span class="text-secondary">Your Balance</span>
+                                        <h4 id="balanceInUsd" class="fw-bold my-2">$0.000</h4>
+                                        <span id="balance" class="text-secondary">0.000 $zEGG</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card border border-primary p-3 p-sm-4 mt-1">
+                            <div class="row justify-centent-between">
+                                <div class="col">
+                                    Your $zEGG
+                                </div>
+                                <div id="balance" class="col-auto text-primary">
+                                    0.000
+                                </div>
+                            </div>
+                            <div class="row justify-centent-between">
+                                <div class="col">
+                                    Fees (to buy back & burn)
+                                </div>
+                                <div class="col-auto text-primary">
+                                    1%
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 mt-1">
+                                <label for="amount" class="form-label fw-medium">Stake Amount</label>
+                                <div class="input-group border border-secondary rounded-1 mb-2">
+                                    <input type="text" id="amount"
+                                        class="form-control py-2 px-3 rounded-1 border-0 text-secondary"
+                                        aria-describedby="amount-addon" value="0" placeholder="Amount">
+                                    <span id="setMaxToAmount" class="input-group-text rounded-1 border-0">MAX</span>
+                                </div>
+                            </div>
+                            <button id="stake" class="btn rounded-1 show" type="button" aria-expanded="true" data-bs-offset="0,14">
+                                <span class="fw-medium ms-1">STAKE</span>
+                                <span id="stakeA"></span>
+                            </button>
+                        </div>
+
+                        <div class="card border border-primary p-3 p-sm-4 mt-1">
+                            <div class="row justify-centent-between">
+                                <div class="col">
+                                    Your Staked
+                                </div>
+                                <div id="staked" class="col-auto text-primary">
+                                    0.000
+                                </div>
+                            </div>
+                            <div class="row justify-centent-between">
+                                <div class="col">
+                                    Staked In USD
+                                </div>
+                                <div id="stakedInUsd" class="col-auto text-primary">
+                                    $0.000
+                                </div>
+                            </div>
+                            <div class="row justify-centent-between">
+                                <div class="col">
+                                    Pending Rewards 
+                                </div>
+                                <div id="pending" class="col-auto text-primary">
+                                    ~
+                                </div>
+                            </div>
+                          
+                            <div class="col-sm-12 mt-1">
+                                <label for="amount" class="form-label fw-medium">Withdraw Amount</label>
+                                <div class="input-group border border-secondary rounded-1 mb-2">
+                                    <input type="text" id="amountW"
+                                        class="form-control py-2 px-3 rounded-1 border-0 text-secondary"
+                                        aria-describedby="amount-addon" value="0" placeholder="Amount">
+                                    <span id="setMaxToAmountW" class="input-group-text rounded-1 border-0">MAX</span>
+                                </div>
+                            </div>                            
+                                <button id="withdraw" class="btn rounded-1 show" type="button" 
+                                    aria-expanded="true" data-bs-offset="0,14">
+                                    <span class="fw-medium ms-1">Withdraw</span>
+                                    <span id="withdrawA"></span>
+                                </button>
+                                <button id="claim" class="btn rounded-1 show mt-2" type="button" 
+                                    aria-expanded="true" data-bs-offset="0,14">
+                                    <span class="fw-medium ms-1">Claim Rewards</span>
+                                    <span id="claimA"></span>
+                                </button>                            
+                        </div>
+                    </div>
+                </div>
+                <h1  class="col-xl-8 text-center text-secondary">ZksEGG StakedLP</h1>
+                <div id = "divstakelp" class="container py-3">
+                    <div class="col-xl-8 mx-auto">
+                        <div class="card border border-primary">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="p-3">
+                                        <span class="text-secondary">
+                                            APR
+                                        </span>
+                                        <h4 id="apylp" class="fw-bold my-2">0%</h4>
+                                        <span id="dailyroilp" class="text-secondary">Daily ROI 0%</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="card border border-primary p-3">
+                                        <span class="text-secondary">Your Balance</span>
+                                        <h4 id="balancelp" class="text-secondary">0.000 $LP</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card border border-primary p-3 p-sm-4 mt-1">
+                            <div class="row justify-centent-between">
+                                <div class="col">
+                                    Your $LP
+                                </div>
+                                <div id="balancelp" class="col-auto text-primary">
+                                    0.000
+                                </div>
+                            </div>
+                            <div class="row justify-centent-between">
+                                <div class="col">
+                                    Fees (to buy back & burn)
+                                </div>
+
+                                <div class="col-auto text-primary">
+                                    1%
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 mt-1">
+                                <label for="amount" class="form-label fw-medium">Stake Amount</label>
+                                <div class="input-group border border-secondary rounded-1 mb-2">
+                                    <input type="text" id="amountlp"
+                                        class="form-control py-2 px-3 rounded-1 border-0 text-secondary"
+                                        aria-describedby="amount-addon" value="0" placeholder="Amount">
+                                    <span id="setMaxToAmountlp" class="input-group-text rounded-1 border-0">MAX</span>
+                                </div>
+                            </div>
+                            <button id="stakelp" class="btn rounded-1 show" type="button"
+                                aria-expanded="true" data-bs-offset="0,14">
+                                <span class="fw-medium ms-1">STAKE</span>
+                                <span id="stakeA"></span>
+                            </button>
+                            <button id="approve" class="btn rounded-1" type="button"
+                                aria-expanded="true" data-bs-offset="0,14">
+                                <span class="fw-medium ms-1">APPROVE</span>
+                                <span id="approveA"></span>
+                            </button>
+                        </div>
+
+                        <div class="card border border-primary p-3 p-sm-4 mt-1">
+                            <div class="row justify-centent-between">
+                                <div class="col">
+                                    Your Staked
+                                </div>
+
+                                <div id="stakedlp" class="col-auto text-primary">
+                                    0.000
+                                </div>
+                            </div>
+                            <div class="row justify-centent-between">
+                                <div class="col">
+                                    Pending Rewards
+                                </div>
+
+                                <div id="pendinglp" class="col-auto text-primary">
+                                    ~
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 mt-1">
+                                <label for="amount" class="form-label fw-medium">Withdraw Amount</label>
+                                <div class="input-group border border-secondary rounded-1 mb-2">
+                                    <input type="text" id="amountWlp"
+                                        class="form-control py-2 px-3 rounded-1 border-0 text-secondary"
+                                        aria-describedby="amount-addon" value="0" placeholder="Amount">
+                                    <span id="setMaxToAmountWlp" class="input-group-text rounded-1 border-0">MAX</span>
+                                </div>
+                            </div>                            
+                                <button id="withdrawlp" class="btn rounded-1 show" type="button" 
+                                    aria-expanded="true" data-bs-offset="0,14">
+                                    <span class="fw-medium ms-1">Withdraw</span>
+                                    <span id="withdrawA"></span>
+                                </button>
+                                <button id="claimlp" class="btn rounded-1 show mt-2" type="button" 
+                                   aria-expanded="true" data-bs-offset="0,14">
+                                    <span class="fw-medium ms-1">Claim Rwards</span>
+                                    <span id="claimA"></span>
+                                </button>                            
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/rangeslider.js@2.3.3/dist/rangeslider.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.1/web3.min.js"></script>
+    <script src="./js/detect-provider.js"></script>
+    <script src="./js/ethers.umd.min.js"></script>
+    <script src="./js/base.js"></script>
+
+    <script>        
+        document.getElementById("showSidebar").addEventListener("click", function () {            
+            document.getElementById("sidebarContainer").classList.add("show");
+            document.getElementById("overlay").style.display = "block"                       
+        })
+        document.getElementById("overlay").addEventListener("click", function () {
+            document.getElementById("sidebarContainer").classList.remove("show");
+            document.getElementById("overlay").style.display = "none"
+        })
+
+        let balance;
+        let balancelp;
+        let balanceOfchef;
+        let stakedAmount;
+        let stakedlpAmount;
+        let amountTo = [];
+        let amountFrom = [];
+        var dataL;
+        var totalStaked = 0;
+        let totalSupply;
+        let blackHoleAmount;
+        let ethPrice;
+        let price;
+        let a
+
+        
+       
+        (async () => {
+            // do global
+            select('#connect').onclick = async () => {
+                await conn();
+            };
+            getData();            
+
+            select('#setMaxToAmountW').onclick = async () => {
+                select('#amountW').value = INT(Number(stakedAmount / (10 ** 24) * a / ETHDIV));
+            };
+
+            select('#setMaxToAmount').onclick = async () => {
+                select('#amount').value = INT(balance - 1);
+            };
+
+            select('#stake').onclick = async () => {
+                await stake(select('#amount').value);
+            };
+
+            select('#withdraw').onclick = async () => {
+                await withdraw(select('#amountW').value);
+            };
+
+            select('#claim').onclick = async () => {
+                await claim(CURADR);
+            };
+            //stakedlp
+            select('#setMaxToAmountWlp').onclick = async () => {
+                select('#amountWlp').value = INT(stakedlpAmount / ETHDIV);
+            };
+
+            select('#setMaxToAmountlp').onclick = async () => {
+                select('#amountlp').value = INT(balancelp);
+            };
+
+            select('#stakelp').onclick = async () => {
+                await stakelp(select('#amountlp').value);
+            };
+
+            select('#withdrawlp').onclick = async () => {
+                await withdrawlp(select('#amountWlp').value);
+            };
+
+            select('#claimlp').onclick = async () => {
+                await claimlp(CURADR);
+            };
+
+            select('#approve').onclick = async () => {
+                await approve();
+            };
+
+            select('#nextRebase').onclick = async () => {
+                await rebase();
+            };
+
+            select('#rebase').onclick = async () => {
+                await rebase();
+            };
+
+            select('#correct').onclick = async () => {
+                await correct();
+            };
+
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        })();
+      
+    </script>
+</body>
+
+</html>
