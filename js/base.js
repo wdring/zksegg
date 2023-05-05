@@ -95,7 +95,7 @@ for (let name of ['weth']) {
 
 ABIS['pair'] = [
     "function token0() view returns (address)",
-    "function getReserves() view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast)",
+    "function getReserves() view returns (uint112 reserve0, uint112 reserve1)",
     "function approve(address, uint256)",
     "function allowance(address, address) view returns (uint256)",
     "function totalSupply() view returns (uint256)",
