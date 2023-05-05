@@ -1,6 +1,6 @@
 'use strict'
 const ETHDIV = 10 ** 18;
-const CHAINID = 97;
+const CHAINID = 280;
 let PROVIDER;
 if (window.ethereum) {
     PROVIDER = new ethers.providers.Web3Provider(window.ethereum);
@@ -11,16 +11,16 @@ if (window.ethereum) {
             await window.ethereum.request({
                 method: "wallet_addEthereumChain",
                 params: [{
-                    chainId: "97",
-                    rpcUrls: ["https://bsc-testnet.public.blastapi.io"],
+                    chainId: "280",
+                    rpcUrls: ["https://testnet.era.zksync.dev"],
                 }],
             });
         }
     })();
 } else {
-    PROVIDER = new ethers.providers.JsonRpcProvider("https://bsc-testnet.public.blastapi.io", {
+    PROVIDER = new ethers.providers.JsonRpcProvider("https://testnet.era.zksync.dev", {
         name: 'bnbtestnet',
-        'chainId': 97
+        'chainId': 280
     });
 }
 
@@ -28,12 +28,12 @@ const SIGNER = PROVIDER.getSigner();
 const ADRS = {};
 const ABIS = {};
 
-ADRS['web3'] = "0xFa0cb273722058cC5F0f8D9cf1B74Fb22e1cF4C6",
-ADRS['factory'] = "0x5Fe5cC0122403f06abE2A75DBba1860Edb762985";
-ADRS['router'] = "0xCc7aDc94F3D80127849D2b41b6439b7CF1eB4Ae0";
-ADRS['chef'] = "0x81d326a9c262ea989a76360954216ab7edc88c9d";
-ADRS['pairweth'] = '0x041b1b38cb14f80325dbEa7AB8337ad7fff23d49';
-ADRS['weth'] = "0x0dE8FCAE8421fc79B29adE9ffF97854a424Cad09";
+ADRS['web3'] = "0xb6109F714bc403Ebd2A4e99595Af72559425aC46",
+ADRS['factory'] = "0xf2FD2bc2fBC12842aAb6FbB8b1159a6a83E72006";
+ADRS['router'] = "0xB3b7fCbb8Db37bC6f572634299A58f51622A847e";
+ADRS['chef'] = "0x28aE0e0326E512760f038aD21427b402EEfCa7c2";
+ADRS['pairweth'] = '0x7Fc10D69dcB205EF733AC041eA3E3934a3A089fB';
+ADRS['weth'] = "0x20b28b1e4665fff290650586ad76e977eab90c5d";
 ADRS['zif'] = "0x36e540644b8499A1F00dDc660d5E1C79025E7777";
 
 ABIS['web3'] = [
