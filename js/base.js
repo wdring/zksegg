@@ -716,7 +716,7 @@ async function updataData_dashbord() {
     displayText("#cirSupply", `${COMMA(ROUND(circulatingSupply, 2))}`);
     displayText("#stakedRate", `$${COMMA(ROUND(balchefOfUnderlying / (10 ** 24) / circulatingSupply * 100, 2))}%`);
     displayText("#zif", `${COMMA(ROUND(zif / ETHDIV, 2))}`);    
-    displayText("#mcap", `$${COMMA(ROUND(mcap))}`);
+    displayText("#mcap", `$${COMMA(ROUND(mcap),2)}`);
 }
 
 async function updateData_approve() {
@@ -766,7 +766,7 @@ async function getData() {
     balanceOfchef = await CONTS['web3'].balanceOf(ADRS["chef"]);
     
     let liqReserves = await CONTS['pairweth'].getReserves();
-    price = liqReserves[1] / liqReserves[0] * ethPrice;
+    price = liqReserves[0] / liqReserves[1] * ethPrice;
     displayText("#price", `$${COMMA(ROUND(price, 10))}`);
     await getCurAdr();
     if (CURADR == null) {
