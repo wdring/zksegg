@@ -485,7 +485,10 @@
             };
 
             select('#nextRebase').onclick = async () => {
-                await rebase();
+                await getData();
+                await updataData_dashbord();
+                await updateData_staked();
+                await updateData_stakedlp();
             };
 
             select('#rebase').onclick = async () => {
