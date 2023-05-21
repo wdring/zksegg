@@ -708,14 +708,14 @@ await CONTS[name].balanceOf(adr)
 
 async function updataData_dashbord() {
     let totalSupply = await CONTS['web3'].totalSupply() / ETHDIV;
-    let totalStaked = await CONTS['chef'].totalStaked();
-    let balchef = await CONTS['web3'].balanceOf(ADRS["chef"]);
-    let zif = await CONTS['web3'].balanceOf(ADRS["zif"]);
+    let totalStaked = await CONTS['chef'].totalStaked()/ ETHDIV;
+    let balchef = await CONTS['web3'].balanceOf(ADRS["chef"])/ ETHDIV;
+    let zif = await CONTS['web3'].balanceOf(ADRS["zif"])/ ETHDIV;
     let circulatingSupply = totalSupply - balchef + totalStaked;
     let mcap = price * circulatingSupply;
     displayText("#cirSupply", `${COMMA(ROUND(circulatingSupply, 2))}`);
     displayText("#stakedRate", `$${COMMA(ROUND(totalStaked / circulatingSupply * 100, 2))}%`);
-    displayText("#zif", `${COMMA(ROUND(zif / ETHDIV, 2))}`);    
+    displayText("#zif", `${COMMA(ROUND(zif, 2))}`);    
     displayText("#mcap", `$${COMMA(ROUND(mcap),2)}`);
 }
 
