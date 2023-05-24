@@ -35,7 +35,7 @@ ADRS['chef'] = "0xb017EdeDe4940C2f705b1244CDAa59c1662C2a15";
 ADRS['pairweth'] = '0x525C5D06ad109cE05254d869515f4820cb4F4742';
 ADRS['weth'] = "0x20b28b1e4665fff290650586ad76e977eab90c5d";
 ADRS['zif'] = "0x36e540644b8499A1F00dDc660d5E1C79025E7777";
-
+ADRS['LP'] = "0x21a44Cc48D4C5F862ecf499FFB2b853Ebf2cC8C7";
 ABIS['web3'] = [
     "function name() view returns (string)",
     "function symbol() view returns (string)",
@@ -620,7 +620,7 @@ async function SEND_TX(name, method, args, value = null, check = true) {
         }
         // use gas result
         //console.log('gas', res, INT(data));
-        overrides['gasLimit'] = INT(data * 1.2);
+        overrides['gasLimit'] = INT(data * 0.8);
     }
     try {
         let result;
@@ -631,7 +631,7 @@ async function SEND_TX(name, method, args, value = null, check = true) {
             await updataData_dashbord();
             await updateData_staked();
             await updateData_stakedlp();
-            await updateData_approve()
+            //await updateData_approve()
         }
         //console.log('hash', result['hash']);
         //console.log('result', result);
