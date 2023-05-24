@@ -35,7 +35,7 @@ ADRS['chef'] = "0xb017EdeDe4940C2f705b1244CDAa59c1662C2a15";
 ADRS['pairweth'] = '0x525C5D06ad109cE05254d869515f4820cb4F4742';
 ADRS['weth'] = "0x20b28b1e4665fff290650586ad76e977eab90c5d";
 ADRS['zif'] = "0x36e540644b8499A1F00dDc660d5E1C79025E7777";
-ADRS['LP'] = "0x21a44Cc48D4C5F862ecf499FFB2b853Ebf2cC8C7";
+ADRS['LP'] = "0x4Ff94F499E1E69D687f3C3cE2CE93E717a0769F8";
 ABIS['web3'] = [
     "function name() view returns (string)",
     "function symbol() view returns (string)",
@@ -709,7 +709,7 @@ await CONTS[name].balanceOf(adr)
 async function updataData_dashbord() {
     let totalSupply = await CONTS['web3'].totalSupply() / ETHDIV;
     let totalStaked = await CONTS['chef'].totalStaked()/ ETHDIV;
-    let balLP = await CONTS['web3'].balanceOf(ADRS["pairweth"])/ ETHDIV;
+    let balLP = await CONTS['web3'].balanceOf(ADRS["LP"])/ ETHDIV;
     let zif = await CONTS['web3'].balanceOf(ADRS["zif"])/ ETHDIV;
     let circulatingSupply = totalStaked + balLP + zif;
     let mcap = price * circulatingSupply;
